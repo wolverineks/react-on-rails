@@ -1,24 +1,23 @@
-class RecordsController < ApplicationController
+class React::RecordsController < ApplicationController
   def index
     @records = Record.all
-    @record = Record.new
   end
 
   def create
     @record = Record.new(record_params)
-
     if @record.save
+      render json: @record
     else
-      render @record.errors, status: :unprocessable_entity
+      render json: @record.errors, status: :unprocessable_entity
     end
   end
 
   def update
     @record = Record.find(params[:id])
     if @record.update(record_params)
-      render @record
+      render json: @record
     else
-      render @record.errors, status: :unprocessable_entity
+      render json: @record.errors, status: :unprocessable_entity
     end
   end
 

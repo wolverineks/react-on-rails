@@ -1,0 +1,15 @@
+div class='records'
+  h2 class='title' Records
+  div class='row' id='amount_boxes'
+    = render partial: 'amount_boxes'
+  = render 'form'
+  hr
+  table class='table table-bordered' id='record-table'
+    thead
+      tr
+        th Date
+        th Title
+        th Amount
+        th Actions
+    tbody
+      = render @records

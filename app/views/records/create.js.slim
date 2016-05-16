@@ -1,0 +1,4 @@
+| $("#{ escape_javascript(render @record) }").appendTo("tbody");
+| $("#record-form").trigger("reset");
+
+| $('#amount_boxes').html("#{ escape_javascript(render partial: 'amount_boxes', locals: {text: 'Balance', type: 'info', amount: total_balance}) }");
