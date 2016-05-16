@@ -4,6 +4,10 @@ class RecordsController < ApplicationController
     @record = Record.new
   end
 
+  def show
+    @record = Record.find(params[:id])
+  end
+
   def create
     @record = Record.new(record_params)
 
@@ -11,6 +15,11 @@ class RecordsController < ApplicationController
     else
       render @record.errors, status: :unprocessable_entity
     end
+  end
+
+  def edit
+    @record = Record.find(params[:id])
+    @edit = true
   end
 
   def update
@@ -25,7 +34,6 @@ class RecordsController < ApplicationController
   def destroy
     @record = Record.find(params[:id])
     @record.destroy
-    head :no_content
   end
 
   private

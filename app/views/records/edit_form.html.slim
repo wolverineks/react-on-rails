@@ -1,0 +1,10 @@
+tr
+  td
+    input type='text' class='form-control' value="#{record.date}"
+  td
+    input type='text' class='form-control' value="#{record.title}"
+  td
+    input type='amount' class='form-control' value="$ #{record.amount}"
+  td
+    a href="#" class='btn btn-default' id="edit-record-#{record.id}" Edit
+    a href="#" class='btn btn-danger' id="delete-record-#{record.id}" Delete

@@ -1,13 +1,5 @@
-- if true
-  tr
-    td = record.date
-    td = record.title
-    td = "$ #{record.amount}"
-    td
-      a href="#" class='btn btn-default' id="edit-record-#{record.id}" Edit
-      a href="#" class='btn btn-danger' id="delete-record-#{record.id}" Delete
-- else
-  tr
+- if @edit ||= false
+  tr class= "record-form" id="record-#{record.id}"
     td
       input type='text' class='form-control' value="#{record.date}"
     td
@@ -15,5 +7,15 @@
     td
       input type='amount' class='form-control' value="$ #{record.amount}"
     td
-      a href="#" class='btn btn-default' id="edit-record-#{record.id}" Edit
-      a href="#" class='btn btn-danger' id="delete-record-#{record.id}" Delete
+      a href="/records/#{@record.id}/edit" class='btn btn-default' id="edit-record-#{record.id}" data-remote="true" Update
+      
+      a href="#" class='btn btn-danger' id="cancel-record-#{record.id}"  data-remote="true" Cancel
+- else
+  tr class= "record" id="record-#{record.id}"
+    td = record.date
+    td = record.title
+    td = "$ #{record.amount}"
+    td
+      a href="/records/#{record.id}/edit" class='btn btn-default' id="edit-record-#{record.id}" data-remote="true" Edit
+      
+      a href="/records/#{record.id}" class='btn btn-danger' id="delete-record-#{record.id}" data-remote="true" data-method="delete" Delete
