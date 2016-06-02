@@ -6,6 +6,7 @@ class RecordsController < ApplicationController
 
   def show
     @record = Record.find(params[:id])
+    @edit = false
   end
 
   def create

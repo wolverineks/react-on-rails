@@ -11,7 +11,7 @@
     # yeah... jQuery doesn't have a $.delete shortcut method
     $.ajax
       method: 'DELETE'
-      url: "/records/#{ @props.record.id }"
+      url: "/react/records/#{ @props.record.id }"
       dataType: 'JSON'
       success: () =>
         @props.handleDeleteRecord @props.record
@@ -25,7 +25,7 @@
     # jQuery doesn't have a $.put shortcut method either
     $.ajax
       method: 'PUT'
-      url: "/records/#{ @props.record.id }"
+      url: "/react/records/#{ @props.record.id }"
       dataType: 'JSON'
       data:
         record: data

@@ -1,15 +1,15 @@
 - if @edit ||= false
   tr class= "record-form" id="record-#{record.id}"
     td
-      input type='text' class='form-control' value="#{record.date}"
+      input type='text' class='form-control date' value="#{record.date}"
     td
-      input type='text' class='form-control' value="#{record.title}"
+      input type='text' class='form-control title' value="#{record.title}"
     td
-      input type='amount' class='form-control' value="$ #{record.amount}"
+      input type='amount' class='form-control amount' value="$ #{record.amount}"
     td
-      a href="/records/#{@record.id}/edit" class='btn btn-default' id="edit-record-#{record.id}" data-remote="true" Update
+      a href="/records/#{@record.id}" class='btn btn-default submit' id="update-record-#{record.id}" data-remote="true" Update
       
-      a href="#" class='btn btn-danger' id="cancel-record-#{record.id}"  data-remote="true" Cancel
+      a href="/records/#{@record.id}" class='btn btn-danger' id="cancel-record-#{record.id}"  data-remote="true" Cancel
 - else
   tr class= "record" id="record-#{record.id}"
     td = record.date
